@@ -1,0 +1,53 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service
+  namespace: svetoslavpetrov
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - nodePort: 31500
+      protocol: TCP
+      port: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-sod
+  labels:
+    app: nginx
+  namespace: svetoslavpetrov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 4
+          periodSeconds: 3
+          failureThreshold: 2
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
