@@ -3,6 +3,7 @@ apiVersion: v1
 metadata:
   name: "{{ .Values.name }}"
   labels:
+    app: "{{ .Values.name }}"
   namespace: svetoslavpetrov
 spec:
   type: LoadBalancer
