@@ -1,12 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx-service
+  name: "{{ .Values.name }}"
+  labels:
   namespace: svetoslavpetrov
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: "{{ .Values.name }}"
   ports:
     - port: 80
       #nodePort: 31500
