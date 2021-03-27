@@ -3,6 +3,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: nginx-service
+  labels:
+    app: nginx
   namespace: svetoslavpetrov
 spec:
   type: LoadBalancer
