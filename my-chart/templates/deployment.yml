@@ -5,7 +5,7 @@ metadata:
   name: "{{ .Values.name }}"
   labels:
     app: "{{ .Values.name }}"
-  namespace: svetoslavpetrov
+  namespace: "{{ .Values.namespace }}"
 spec:
   replicas: 1
   selector:
