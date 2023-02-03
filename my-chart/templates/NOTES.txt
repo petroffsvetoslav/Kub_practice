@@ -1,1 +1,0 @@
-Move out the templates/namespace.yml if the desired namespace already exists, or you lack permissions to create ns, secrets, etc.

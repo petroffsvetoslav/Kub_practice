@@ -1,5 +1,0 @@
-deployment:
-  image: "nginx"
-  tag: "1.19-alpine"
-name: "nginx-sod1"
-namespace: "example"
