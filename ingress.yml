@@ -5,13 +5,15 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-  creationTimestamp: "2023-02-03T08:37:49Z"
-  generation: 1
   name: nginx-sod
   namespace: svetoslavpetrov
 spec:
+  tls:
+  - hosts:
+      - nginx.unixbashscript.duckdns.org
+    secretName: nginx-sod-tls
   rules:
-  - host: nginx.k8s.colasloth.com
+  - host: nginx.unixbashscript.duckdns.org
     http:
       paths:
       - backend:
