@@ -7,6 +7,7 @@ spec:
   secretName: nginx-sod-tls
   issuerRef:
     name: letsencrypt
+    kind: ClusterIssuer
   commonName: nginx.unixbashscript.duckdns.org
   dnsNames:
   - nginx.unixbashscript.duckdns.org
